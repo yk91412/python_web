@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문제 풀기</title>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <button onclick="location.href='/'">홈으로</button>
+    <h2>문제</h2>
+    <p>{{ question["question"] }}</p>
+    <textarea id="user_code"></textarea>
+    <button onclick="checkAnswer()">실행</button>
+    <button id="solution-btn" onclick="showSolution()" disabled>풀이 보기</button>
+    <p id="result"></p>
+    <p id="solution" style="display: none;">정답: {{ question["answer"] }}</p>
+</body>
+</html>

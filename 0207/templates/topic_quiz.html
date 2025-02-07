@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>관련 문제 풀기</title>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <button onclick="location.href='/'">홈으로</button>
+
+    {% if question %}
+        <h2>문제</h2>
+        <p>{{ question["문제"] }}</p>
+
+        <h3>입력 설명</h3>
+        <p>{{ question["입력설명"] }}</p>
+
+        <h3>출력 설명</h3>
+        <p>{{ question["출력설명"] }}</p>
+
+        <h3>입력 예시</h3>
+        <pre>{{ question["예제입력"] }}</pre>
+
+        <h3>출력 예시</h3>
+        <pre>{{ question["예제출력"] }}</pre>
+
+    {% else %}
+        <p>문제를 불러오는 데 실패했습니다.</p>
+    {% endif %}
+
+    <textarea id="user_code"></textarea>
+    <button onclick="checkAnswer()">실행</button>
+    <button id="solution-btn" onclick="showSolution()" disabled>풀이 보기</button>
+    
+    <p id="result"></p>
+    <p id="solution" style="display: none;">
+        정답: <span id="correct-answer">{{ question["출력"] }}</span>
+    </p>
+</body>
+</html>
